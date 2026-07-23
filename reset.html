@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reset password — OpenHoops</title>
+<style>
+  body {
+    margin: 0;
+    background: #121316;
+    color: #f2f3f5;
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 28px;
+    max-width: 380px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    margin: 0 0 6px;
+  }
+  h1 span { color: #ffc400; }
+  p { color: #a7abb3; font-size: 14.5px; line-height: 1.5; }
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: #f2f3f5;
+    font-size: 16px;
+    padding: 13px 14px;
+    margin: 10px 0 14px;
+  }
+  button {
+    width: 100%;
+    background: #ffc400;
+    color: #17181c;
+    border: 0;
+    border-radius: 12px;
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.6; }
+  .msg { font-size: 14px; margin-top: 12px; }
+  .err { color: #ff6b6b; }
+  .ok { color: #3edc85; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1><span>🏀</span> Reset your OpenHoops password</h1>
+  <div id="form">
+    <p>Pick a new password for your account.</p>
+    <input id="pw" type="password" placeholder="New password (8+ characters)" autocomplete="new-password" />
+    <button id="save">Save new password</button>
+  </div>
+  <p id="msg" class="msg"></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // This page is the target of the password-reset email link. Supabase
+  // verifies the link server-side, then redirects here with a short-lived
+  // recovery session in the URL fragment (never sent to any server).
+  var SUPABASE_URL = "https://tpqrkdvvnoipxrrxovnb.supabase.co";
+  var SUPABASE_ANON =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRwcXJrZHZ2bm9pcHhycnhvdm5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQyMjcwODMsImV4cCI6MjA5OTgwMzA4M30.qz9G9SzbJl7eejpzUqVmLJjd_0K8p7cHccM6GJxWv8g";
+
+  var form = document.getElementById("form");
+  var msg = document.getElementById("msg");
+  var params = new URLSearchParams(window.location.hash.slice(1));
+
+  function fail(text) {
+    form.classList.add("hidden");
+    msg.textContent = text;
+    msg.className = "msg err";
+  }
+
+  if (params.get("error")) {
+    fail(
+      (params.get("error_description") || "This link is invalid.").replace(/\+/g, " ") +
+        " Ask for a new reset email in the app."
+    );
+  } else if (!params.get("access_token")) {
+    fail("This page only works from the link in a password-reset email. Open the app and tap “Forgot password?” to get one.");
+  } else {
+    var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    client.auth
+      .setSession({
+        access_token: params.get("access_token"),
+        refresh_token: params.get("refresh_token"),
+      })
+      .then(function (res) {
+        if (res.error) fail("This link has expired. Ask for a new reset email in the app.");
+      });
+
+    document.getElementById("save").addEventListener("click", function () {
+      var pw = document.getElementById("pw").value;
+      if (pw.length < 8) {
+        msg.textContent = "Use at least 8 characters.";
+        msg.className = "msg err";
+        return;
+      }
+      var btn = document.getElementById("save");
+      btn.disabled = true;
+      client.auth.updateUser({ password: pw }).then(function (res) {
+        btn.disabled = false;
+        if (res.error) {
+          msg.textContent = res.error.message;
+          msg.className = "msg err";
+          return;
+        }
+        form.classList.add("hidden");
+        msg.textContent =
+          "Password updated ✓ Go back to the OpenHoops app and log in with it.";
+        msg.className = "msg ok";
+      });
+    });
+  }
+</script>
+</body>
+</html>
