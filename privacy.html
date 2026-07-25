@@ -13,103 +13,171 @@
   .meta { color: #A6A9B0; font-size: 0.9rem; margin-bottom: 2em; }
   strong { color: #fff; }
   a { color: #FFD84D; }
-  ol li { margin-bottom: 0.6em; }
+  ol li, ul li { margin-bottom: 0.6em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #2a2c31; vertical-align: top; font-size: 0.95rem; }
+  th { color: #FFD84D; }
 </style>
 </head>
 <body>
 <main>
 <h1>OpenHoops Privacy Policy</h1>
-<p class="meta">Effective date: July 23, 2026 · Contact: flushatoilet@gmail.com</p>
+<p class="meta">Effective date: July 25, 2026 · Contact: flushatoilet@gmail.com</p>
 
 <p>OpenHoops ("the app") helps basketball players find gyms and outdoor
 courts and see who is playing right now. This policy explains what
 information the app handles and why. The short version: we collect the
-minimum needed to run the app, we don't sell anything, and your location
-is never tracked in the background.</p>
+minimum needed to run the app, we don't sell anything, your location is
+never read in the background, and the parts of the app that show you to
+other players are described plainly below.</p>
+
+<p>Using OpenHoops also means agreeing to our
+<a href="terms.html">Terms of Service</a>. You must be at least 13 years
+old to have an account.</p>
+
+<h2>What other players can see about you</h2>
+
+<p>This is the part worth reading twice, because it is the point of the
+app.</p>
+
+<table>
+  <tr><th>They can see</th><th>Detail</th></tr>
+  <tr><td>Your username and profile picture</td><td>Always, to any signed-in player.</td></tr>
+  <tr><td>That you are checked in at a court, right now</td><td>Only while the check-in is active (3 hours at most, or until you leave).</td></tr>
+  <tr><td>Roughly how long ago you arrived</td><td>Rounded down to 15-minute steps ("just now", "~30 min ago"). Your exact arrival time is shown only to you.</td></tr>
+  <tr><td>Your "heading there" plan</td><td>Venue and estimated arrival, with your username, until that time passes.</td></tr>
+  <tr><td>Your respect count and streak</td><td>Totals only — never who gave you daps, or where.</td></tr>
+  <tr><td>Your real name</td><td><strong>Only if you turn it on.</strong> Hidden by default; never more than a first name plus last initial.</td></tr>
+</table>
+
+<p>Other players <strong>cannot</strong> see your email address, your
+check-in history, which courts you visit most, your favourite courts, your
+plans after they expire, your settings, or who you have blocked. Since
+July 2026 those limits are enforced by the database itself, not only by
+what the app chooses to display — so they hold even against someone
+querying our servers directly rather than using the app.</p>
 
 <h2>What we collect</h2>
 
 <p><strong>Account information.</strong> When you sign up we collect your email
-address and a username you choose. Your email is used for signing in and
-account recovery. Other players see only your username — never your email.</p>
+address and a username you choose. If you sign in with Google, we receive
+your email address and the name on your Google account (which pre-fills
+the optional name fields — you can clear them). Your email is used for
+signing in and account recovery. Other players never see it.</p>
 
 <p><strong>Optional profile details.</strong> You may add your first and last
-name and a profile picture. These are entirely optional. Your name is
-<strong>hidden by default</strong> — other players see it only if you choose a
+name and a profile picture. These are entirely optional and leaving them
+blank changes nothing about how the app works. Your name is
+<strong>hidden by default</strong>: other players see it only if you choose a
 display option in settings (initials, first name only, or first name plus
-last initial; your full last name is never displayed to anyone). You can
-switch back to username-only at any time. Profile pictures are stored on
-our infrastructure provider and are visible to other players. Leaving
-these blank changes nothing about how the app works.</p>
+last initial; your full last name is never displayed to anyone).</p>
+
+<p><strong>Your profile picture is publicly accessible.</strong> It is stored
+with our infrastructure provider at a web address that anyone holding the
+link can open, without signing in — this is how photos load quickly on
+court rosters. Please don't upload anything you would mind being seen
+outside the app. The file is deleted when you delete your account.</p>
 
 <p><strong>Location (while using the app).</strong> The app uses your device's
 precise location for two purposes only: showing venues near you on the
-map, and verifying that you are physically at a venue when you check in
-(within about 50 meters of an outdoor court, or 200 meters of a gym —
-gyms use a wider ring because GPS is less accurate inside large
-buildings). Location is read only while the app is open. Check-in
-verification happens at the moment you check in; the app does not keep a
-history of your movements or track you in the background. Automatic
-check-in works by recording a brief pending arrival when the open app
-sees you at a venue; it becomes a check-in about a minute later unless
-you leave first, and can be turned off at any time in settings.</p>
+map, and checking that you are close enough to a venue to check in (about
+50 metres for an outdoor court, 200 metres for a gym — gyms use a wider
+ring because GPS is less accurate inside large buildings). Location is
+read <strong>only while the app is open</strong>, never in the background,
+and your position itself is not sent to our servers or stored — only the
+venue you check in at.</p>
 
-<p><strong>Check-ins and thumbs-ups.</strong> When you check in, we store which
-venue you checked in at and when; other players can see your active
-check-in and its arrival time on that venue's roster. Check-ins expire
-automatically after 3 hours. When you give another player a thumbs-up
-("daps"), it is stored and shown to the recipient
-<strong>anonymously</strong> — the app never reveals who gave a thumbs-up.</p>
+<p><strong>Automatic check-in</strong> is on by default: when the open app sees
+you at a venue it files a brief pending arrival, which becomes a check-in
+about a minute later unless you leave first. A check-in shows your
+username to other players at that court. You can turn automatic check-in
+off at any time in Settings → Presence, and check in by hand instead.</p>
+
+<p><strong>Check-ins and your activity history.</strong> When you check in we
+store which venue and when. That record is kept as your own activity
+history — the Activity tab and the "gyms you frequent" list on your
+profile are built from it — <strong>until you delete your account</strong>.
+To be precise about a phrase we used to get wrong: a check-in stops being
+shown to other players after 3 hours, but the record of it remains in your
+own history. Only you can read your history.</p>
+
+<p><strong>Daps.</strong> When you give another player a dap, it is stored and
+shown to the recipient <strong>anonymously</strong> — the app never reveals who
+gave it, and the venue history behind daps is visible only to the person
+who received them.</p>
 
 <p><strong>"Heading there" plans.</strong> If you announce you're heading to a
 court at a certain time, we store that plan (venue and estimated arrival)
-and show it to other players with your username. Plans disappear
-automatically once the time passes, and you can cancel one at any time.</p>
+and show it, with your username, to players looking at that court. Once
+the time passes the plan stops being shown to anyone, and you can cancel
+it at any time; the underlying record is kept with your account data until
+you delete your account.</p>
 
-<p><strong>Favorite courts.</strong> Courts you star are stored so the app can
-alert you when players show up there. Your favorites list is visible only
+<p><strong>Favourite courts.</strong> Courts you star are stored so the app can
+alert you when players show up there. Your favourites list is visible only
 to you.</p>
 
 <p><strong>Notification token.</strong> If you allow notifications in the store
 version of the app, your device's push-notification token (a random
 address for delivering notifications — not your phone number or any
-hardware ID) is stored so alerts about your favorite courts can reach
-your device with the app closed. It is removed when your account is
-deleted.</p>
+hardware ID) is stored so alerts about your favourite courts can reach
+your device with the app closed. It is removed when you sign out and when
+your account is deleted.</p>
 
 <p><strong>Reports and blocks.</strong> If you report a player, we store the
-report (who you reported, the category, and where) so we can review it;
-reports are never shown to the reported player. If you block a player,
-that is stored so the app can hide the two of you from each other.</p>
+report (who you reported, the category — including a child-safety option —
+and where) so we can review it; reports are never shown to the reported
+player. If you block a player, that is stored, and the two of you are
+hidden from each other's rosters, player cards and plans.</p>
+
+<p><strong>Crash reports (store builds).</strong> App versions built after July
+2026 may include crash reporting (Sentry) so we can find bugs that only
+happen on real devices. It sends diagnostic information about a crash —
+device model, operating system version, app version, and the technical
+stack of the failure. It is not used for advertising or to profile you.</p>
 
 <h2>What we don't collect</h2>
 
-<p>No contacts, no photos, no files, no payment information, no health
-data, no advertising identifiers. This version of the app contains no
-advertising SDK and no analytics SDK.</p>
+<p>No contacts, no files, no payment information, no health data, no
+advertising identifiers, and no background location. We don't read your
+photo library — when you set a profile picture, your phone's own picker
+hands us just the one image you chose. The app contains no advertising
+SDK and no analytics or tracking SDK.</p>
 
-<h2>Where your data lives</h2>
+<h2>Where your data lives, and who else touches it</h2>
 
-<p>App data is stored with Supabase (our database and authentication
-provider), hosted in the United States (AWS us-east-2). All data travels
-over encrypted connections (HTTPS). Database access rules ensure players
-can only read the information the app is designed to show.</p>
+<p>App data is stored with <strong>Supabase</strong> (our database and
+authentication provider), hosted in the United States (AWS us-east-2).
+All data travels over encrypted connections (HTTPS). Database access
+rules restrict every player — including anyone querying our servers
+directly — to the information described in the first section.</p>
 
-<h2>Sharing</h2>
+<p>We do not sell, rent, or trade your personal information. A small number
+of service providers necessarily handle some data to make the app work:</p>
 
-<p>We do not sell, rent, or share your personal information with third
-parties. Data is processed only by our infrastructure provider (Supabase)
-as required to operate the app.</p>
+<ul>
+  <li><strong>Supabase</strong> — database, accounts, sign-in.</li>
+  <li><strong>Expo</strong> — delivers push notifications to your device (it
+  receives the notification text and your device's push token) and
+  delivers app updates.</li>
+  <li><strong>Google</strong> — Google Maps renders the map; "Continue with
+  Google" verifies your identity if you choose it; Firebase carries
+  Android notifications to your phone.</li>
+  <li><strong>Sentry</strong> — receives crash reports from store builds, where
+  enabled.</li>
+  <li><strong>Apple and Google app stores</strong> — distribute the app; we never
+  receive your payment details.</li>
+</ul>
 
 <h2>Data retention and deletion</h2>
 
 <p>Your account data is kept until you delete your account. You can delete
 it three ways:</p>
 <ol>
-  <li><strong>In the app:</strong> Profile → gear icon → Delete account. This
-  immediately and permanently removes your profile, check-ins,
-  thumbs-ups, plans, favorites, reports, blocks, and notification
-  token.</li>
+  <li><strong>In the app:</strong> Profile → gear icon → Advanced → Delete
+  account. This immediately and permanently removes your profile, check-in
+  history, daps, plans, favourites, reports, blocks, notification token,
+  and profile picture.</li>
   <li><strong>On the web:</strong> see our
   <a href="delete-account.html">account-deletion page</a> — no app
   required.</li>
@@ -120,8 +188,12 @@ it three ways:</p>
 
 <h2>Children</h2>
 
-<p>OpenHoops is not directed at children under 13, and we do not knowingly
-collect personal information from children under 13.</p>
+<p>You must be at least 13 years old to use OpenHoops. The app is not
+directed at children under 13, and we do not knowingly collect personal
+information from them. If you believe a child under 13 has an account,
+email us and we will remove it. If you are under 18, please use the app
+only with a parent's or guardian's permission — and read the safety
+section of our <a href="terms.html">Terms of Service</a> together.</p>
 
 <h2>Changes</h2>
 
