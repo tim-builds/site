@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OpenHoops — open this court</title>
+<meta name="description" content="See who's hooping at this court right now." />
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center;
+    justify-content: center; background: #0e1013; color: #f2f3f5;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 24px; text-align: center;
+  }
+  .card { max-width: 380px; }
+  .ball { font-size: 56px; line-height: 1; margin-bottom: 18px; }
+  h1 { font-size: 22px; margin: 0 0 10px; letter-spacing: 0.2px; }
+  p { color: #a7adb6; font-size: 15px; line-height: 1.5; margin: 0 0 22px; }
+  a.btn {
+    display: inline-block; background: #ffc400; color: #17181b;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 13px 22px; border-radius: 999px;
+  }
+  .muted { display: block; margin-top: 16px; font-size: 13px; color: #6f757e; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="ball">🏀</div>
+    <h1 id="headline">Opening this court…</h1>
+    <p id="sub">If nothing happens, you don't have OpenHoops yet.</p>
+    <a class="btn" id="store"
+       href="https://play.google.com/store/apps/details?id=com.openhoops.app">Get OpenHoops</a>
+    <span class="muted">See who's hooping, right now.</span>
+  </div>
+
+<script>
+(function () {
+  // The court id travels as ?g=<uuid>. Validate it rather than trusting it:
+  // this value goes into a URL we then ask the OS to open, and the page is
+  // reachable by anyone. A uuid is the only shape the app will ever send.
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get("g") || "";
+  var isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+
+  if (!isUuid) {
+    // No usable court — don't pretend to open one.
+    document.getElementById("headline").textContent = "Find a run near you";
+    document.getElementById("sub").textContent =
+      "OpenHoops shows which courts have players right now.";
+    return;
+  }
+
+  // Try the app first. If it's installed, the OS switches away and this page
+  // is left behind; if it isn't, nothing visible happens and the store button
+  // is already on screen — so there is no error state to get wrong.
+  var deepLink = "openhoops://court/" + id;
+  var start = Date.now();
+
+  // If we're still here after the attempt, the app almost certainly isn't
+  // installed. Time-based rather than event-based because there is no reliable
+  // cross-browser "scheme failed" event. The generous window avoids calling it
+  // a miss on a slow phone that IS switching away.
+  setTimeout(function () {
+    if (document.hidden || Date.now() - start > 2500) return; // we did leave
+    document.getElementById("headline").textContent = "Get OpenHoops";
+    document.getElementById("sub").textContent =
+      "Install the app to see who's hooping at this court.";
+  }, 1200);
+
+  window.location.href = deepLink;
+})();
+</script>
+</body>
+</html>
