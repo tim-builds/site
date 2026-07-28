@@ -3,29 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenHoops</title>
+<title>tim-builds</title>
+<meta name="description" content="small, honest apps by Tim">
 <style>
   :root { color-scheme: dark; }
   body { margin: 0; background: #121316; color: #e8e9ec; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.6; }
-  main { max-width: 720px; margin: 0 auto; padding: 60px 22px; text-align: center; }
-  h1 { color: #FFC400; font-size: 2.4rem; margin-bottom: 6px; }
-  p { color: #A6A9B0; }
+  main { max-width: 640px; margin: 0 auto; padding: 90px 22px 60px; }
+  h1 { color: #FFC400; font-size: 2.2rem; margin: 0 0 4px; letter-spacing: -0.5px; }
+  .tagline { color: #A6A9B0; margin: 0 0 3.5em; }
+  h2 { color: #71757e; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.4px; margin: 0 0 14px; }
   a { color: #FFD84D; }
-  .links { margin-top: 2em; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .links a { border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); border-radius: 999px; padding: 10px 22px; text-decoration: none; }
+  .card { display: block; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 22px; text-decoration: none; color: inherit; }
+  .card:hover { border-color: rgba(255,196,0,0.45); background: rgba(255,255,255,0.06); }
+  .card h3 { margin: 0 0 2px; font-size: 1.15rem; color: #e8e9ec; }
+  .card p { margin: 0; color: #A6A9B0; font-size: 0.95rem; }
+  .sublinks { margin-top: 12px; font-size: 0.85rem; color: #71757e; }
+  .sublinks a { color: #A6A9B0; }
+  footer { margin-top: 4em; padding-top: 1.5em; border-top: 1px solid #24262b; color: #71757e; font-size: 0.85rem; }
+  footer a { color: #A6A9B0; }
 </style>
 </head>
 <body>
 <main>
-<h1>🏀 OpenHoops</h1>
-<p>Find basketball runs near you — see who's hooping right now at gyms
-and outdoor courts, check in with one tap (or none), and get alerted
-when your court fills up.</p>
-<div class="links">
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <a href="delete-account.html">Delete Your Account</a>
-</div>
+<h1>tim-builds</h1>
+<p class="tagline">small, honest apps by Tim</p>
+
+<h2>Apps</h2>
+<a class="card" href="openhoops/">
+  <h3>🏀 OpenHoops</h3>
+  <p>find basketball runs near you</p>
+</a>
+<p class="sublinks">
+  <a href="openhoops/privacy.html">Privacy Policy</a> ·
+  <a href="openhoops/terms.html">Terms of Service</a>
+</p>
+
+<footer>
+  <a href="mailto:support@tim-builds.dev">support@tim-builds.dev</a>
+</footer>
 </main>
 </body>
 </html>
