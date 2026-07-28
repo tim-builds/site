@@ -134,8 +134,11 @@ hidden from each other's rosters, player cards and plans.</p>
 
 <p><strong>Crash reports.</strong> Since July 28, 2026 the app includes crash
 reporting (Sentry) so we can find bugs that only happen on real devices —
-it arrived through an app update, so store versions installed earlier
-have it too. When the app crashes or hits an error, it sends diagnostic
+it is built into the app at install time, not something we can add to a
+copy already on your phone, so only store versions released on or after
+that date have it. Store versions installed earlier stay silent: the
+crash-reporting part is not in them, and the oldest release cannot receive
+app updates at all. When the app crashes or hits an error, it sends diagnostic
 information: device model, operating system version, app version, which
 app update was running, and the technical stack of the failure. It does
 not include your location, your messages, or anything you typed, and it
@@ -169,7 +172,7 @@ of service providers necessarily handle some data to make the app work:</p>
   Google" verifies your identity if you choose it; Firebase carries
   Android notifications to your phone.</li>
   <li><strong>Sentry</strong> — receives crash reports from store builds, where
-  enabled.</li>
+  enabled; hosted in the United States (Sentry's US data region).</li>
   <li><strong>Apple and Google app stores</strong> — distribute the app; we never
   receive your payment details.</li>
 </ul>
