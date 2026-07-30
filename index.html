@@ -39,7 +39,20 @@
 </p>
 
 <footer>
-  <a href="mailto:support@tim-builds.dev">support@tim-builds.dev</a>
+  <!--
+    Two domains, and they are NOT interchangeable — never "unify" them:
+      tim-builds.dev  (WITH hyphen)  = the SITE. This repo is served from it
+        (see CNAME), and it is baked into Supabase auth config and into
+        password-reset emails already delivered to real testers. Every
+        https:// URL in this repo keeps the hyphen. Changing it breaks
+        password resets for live users and every link already in the wild.
+      timbuilds.dev   (NO hyphen)    = EMAIL only, as of 2026-07-29.
+    Both zones live on the same Cloudflare account. support@tim-builds.dev
+    keeps routing to the same inbox permanently as an alias: it is named in
+    the published Terms and Privacy Policy and in mail testers already have,
+    so it must never be switched off.
+  -->
+  <a href="mailto:support@timbuilds.dev">support@timbuilds.dev</a>
 </footer>
 </main>
 </body>
