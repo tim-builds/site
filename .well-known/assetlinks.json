@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.openhoops.app",
+      "sha256_cert_fingerprints": [
+        "<PLAY-DELIVERY-APP-SIGNING-SHA256-1>",
+        "<PLAY-DELIVERY-APP-SIGNING-SHA256-2>"
+      ]
+    }
+  }
+]
