@@ -93,7 +93,8 @@ these settings.</p>
 rosters, plans and Friends presence. One exception remains only for the person
 who set the block. If the blocked player is set to Visible, the person who set
 the block can still open the player's card so the Unblock button remains
-available. A player who blocked you stays hidden from you.</p>
+available. A player who blocked you is not revealed to you through that
+exception.</p>
 
 <h2>What we collect</h2>
 
@@ -241,8 +242,8 @@ crash analytics is not used for advertising or player profiling.</p>
 <p>No contacts, payment information, health data, advertising identifiers or
 background location. We do not browse your files or photo library: when you
 set a profile picture, your phone's picker gives the app only the image you
-chose. No advertising, attribution or product-analytics SDK ships in the
-app. Sentry crash analytics is described above.</p>
+chose. The app's own runtime dependencies include no advertising, attribution
+or product-analytics SDK. Sentry crash analytics is described above.</p>
 
 <h2>Where your data lives, and who else touches it</h2>
 
@@ -314,7 +315,7 @@ account exists. You can delete in the app or request deletion by email:</p>
   already written. Those snapshots are locked with strong encryption, the key
   that opens them is stored separately from them, they are kept on the
   operator's own computer, and they are never uploaded to the project's code
-  repository. A backup is made once a day and only the 14 most recent are kept. A copy of your information stays in the backups until 14 newer ones have been made, and is deleted with the backup it sits in. That is usually between one and two weeks, depending on the number of extra backups, but it is a count and not a deadline: if a backup is missed or fails, an older one stays longer. Profile pictures are not part of these
+  repository. A backup is made once a day and only the 14 most recent are kept. A copy of your information stays in the backups until 14 newer ones have been made, and is deleted with the backup it sits in. That is usually one to two weeks — more if backups are missed, less when extra ones are taken — because it is a count and not a deadline. Profile pictures are not part of these
   snapshots.</li>
 </ul>
 
